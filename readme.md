@@ -41,22 +41,6 @@ Features:
 14. Clear Note Functionality 
 
 
-project Structure:
-
-Notepad-Website/
-
-│── index.html
-│
-├── css/
-│     └── notepad.css
-│
-├── js/
-│     └── notepad.js
-│
-├── images/
-│
-└── README.md
-
 Learning Outcomes:
 
 1. Built a complete frontend project.
