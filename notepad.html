@@ -1,0 +1,233 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notepad</title>
+
+  <!-- External CSS file -->
+  <link rel="stylesheet" href="../css/notepad.css">
+
+  <!-- External JavaScript file -->
+  <script src="../js/notepad.js" defer></script>
+</head>
+<body>
+
+  <!-- Main Notepad header -->
+  <header class="notepad-header">
+
+    <!-- Top navigation bar -->
+    <nav class="top-nav-bar" aria-label="File tabs and window controls">
+      <div class="tab-list">
+        <a href="#" class="file-tab active-tab" aria-selected="true">
+          <span class="tab-icon" aria-hidden="true">📄</span>
+          <span class="tab-name">New file</span>
+          <span class="unsaved-indicator" aria-label="Unsaved changes">●</span>
+        </a>
+
+        <a href="#" class="new-tab-icon" aria-label="New tab">
+          <span class="plus-symbol">+</span>
+        </a>
+      </div>
+
+      <div class="window-controls">
+        <a href="#" class="window-control minimize" aria-label="Minimize">
+          <span class="control-symbol">-</span>
+          <span class="control-name">Minimize</span>
+        </a>
+
+        <a href="#" class="window-control maximize" aria-label="Maximize">
+          <span class="control-symbol">□</span>
+          <span class="control-name">Maximize</span>
+        </a>
+
+        <a href="#" class="window-control close" aria-label="Close">
+          <span class="control-symbol">×</span>
+          <span class="control-name">Close</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Second navigation bar -->
+    <nav class="menu-bar" aria-label="Main menu">
+
+      <!-- Left section -->
+      <div class="menu-left">
+        <div class="menu-item dropdown">
+          <a href="#" class="menu-link">File</a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">New</a>
+            <a href="#" class="dropdown-item">Open</a>
+            <a href="#" class="dropdown-item">Save</a>
+            <a href="#" class="dropdown-item">Save As</a>
+            <a href="#" class="dropdown-item">Print</a>
+            <a href="#" class="dropdown-item">Exit</a>
+          </div>
+        </div>
+
+        <div class="menu-item dropdown">
+          <a href="#" class="menu-link">Edit</a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">Undo</a>
+            <a href="#" class="dropdown-item">Redo</a>
+            <a href="#" class="dropdown-item">Cut</a>
+            <a href="#" class="dropdown-item">Copy</a>
+            <a href="#" class="dropdown-item">Paste</a>
+            <a href="#" class="dropdown-item">Find</a>
+            <a href="#" class="dropdown-item">Replace</a>
+          </div>
+        </div>
+
+        <div class="menu-item dropdown">
+          <a href="#" class="menu-link">View</a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">Zoom In</a>
+            <a href="#" class="dropdown-item">Zoom Out</a>
+            <a href="#" class="dropdown-item">Word Wrap</a>
+            <a href="#" class="dropdown-item">Status Bar</a>
+            <a href="#" class="dropdown-item">Full Screen</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center section -->
+      <div class="menu-center">
+        <div class="dropdown">
+          <a href="#" class="format-item">H1</a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">Heading 1</a>
+            <a href="#" class="dropdown-item">Heading 2</a>
+            <a href="#" class="dropdown-item">Heading 3</a>
+            <a href="#" class="dropdown-item">Normal Text</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="#" class="format-item">☰</a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">Paragraph</a>
+            <a href="#" class="dropdown-item">Numbered List</a>
+            <a href="#" class="dropdown-item">Bullet List</a>
+            <a href="#" class="dropdown-item">Quote</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="#" class="format-item">B</a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">Bold</a>
+            <a href="#" class="dropdown-item">Italic</a>
+            <a href="#" class="dropdown-item">Underline</a>
+            <a href="#" class="dropdown-item">Strikethrough</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right section -->
+      <div class="menu-right">
+        <div class="dropdown">
+          <a href="#" class="icon-item">↗ Share</a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a href="#" class="dropdown-item">Copy Link</a>
+            <a href="#" class="dropdown-item">Email</a>
+            <a href="#" class="dropdown-item">WhatsApp</a>
+            <a href="#" class="dropdown-item">Facebook</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="#" class="icon-item">◉ Login</a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a href="#" class="dropdown-item">Sign In</a>
+            <a href="#" class="dropdown-item">Create Account</a>
+            <a href="#" class="dropdown-item">Profile</a>
+            <a href="#" class="dropdown-item">Logout</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="#" class="icon-item">⚙ Settings</a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a href="#" class="dropdown-item">Theme</a>
+            <a href="#" class="dropdown-item">Font Size</a>
+            <a href="#" class="dropdown-item">Language</a>
+            <a href="#" class="dropdown-item">About</a>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- Main content section -->
+  <main class="notepad-main" id="main-content">
+
+    <!-- Note editor section -->
+    <section class="note-editor-section" aria-label="Note editor">
+
+      <!-- Note title input -->
+      <div class="note-title-wrapper">
+        <label for="note-title" class="note-title-label">Note Title</label>
+        <input
+          type="text"
+          id="note-title"
+          class="note-title-input"
+          name="note-title"
+          placeholder="Enter note title"
+        >
+      </div>
+
+      <!-- Note writing area -->
+      <div class="note-body-wrapper">
+        <label for="note-content" class="note-content-label">Write your note</label>
+        <textarea
+          id="note-content"
+          class="note-content-area"
+          name="note-content"
+          rows="15"
+          placeholder="Start writing your note here..."
+        ></textarea>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer status bar -->
+  <footer class="notepad-footer" aria-label="Notepad status bar">
+    <div class="status-bar">
+
+      <!-- Word count status -->
+      <div class="status-item status-words">
+        <span class="status-label">Words:</span>
+        <span class="status-value" id="status-words">0</span>
+      </div>
+
+      <!-- Character count status -->
+      <div class="status-item status-characters">
+        <span class="status-label">Characters:</span>
+        <span class="status-value" id="status-characters">0</span>
+      </div>
+
+      <!-- Line status -->
+      <div class="status-item status-line">
+        <span class="status-label">Line:</span>
+        <span class="status-value" id="status-line">1</span>
+      </div>
+
+      <!-- Column status -->
+      <div class="status-item status-column">
+        <span class="status-label">Column:</span>
+        <span class="status-value" id="status-column">1</span>
+      </div>
+
+      <!-- General status message -->
+      <div class="status-item status-message">
+        <span class="status-label">Status:</span>
+        <span class="status-value" id="status-message">Ready</span>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html> -->

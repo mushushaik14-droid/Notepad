@@ -1,0 +1,353 @@
+Global reset and base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make footer stay at bottom */
+  background: #edf1f7;          /* Soft neutral background for the whole app */
+}
+
+/* Header wrapper */
+.notepad-header {
+  width: 100%;
+}
+
+/* Top navigation bar */
+.top-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 8px 12px;
+  background: #1f2937;          /* Dark slate header for a professional look */
+  border-bottom: 1px solid #111827;
+}
+
+.tab-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.file-tab,
+.new-tab-icon {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #f9fafb;
+}
+
+.file-tab {
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #374151;          /* Slightly lighter than header */
+}
+
+.new-tab-icon {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #4b5563;
+}
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.window-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  text-decoration: none;
+  color: #e5e7eb;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, filter 0.2s ease;
+}
+
+.window-control:hover {
+  background-color: #4b5563;
+  filter: brightness(1.05);
+}
+
+.control-symbol {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.control-name {
+  font-size: 14px;
+}
+
+/* Second navigation bar */
+.menu-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 8px 12px;
+  background: #f3f4f6;          /* Light neutral bar under dark header */
+  border-bottom: 1px solid #d1d5db;
+}
+
+.menu-left,
+.menu-center,
+.menu-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.menu-link,
+.format-item,
+.icon-item {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #111827;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.menu-link:hover,
+.format-item:hover,
+.icon-item:hover {
+  background: #e5e7eb;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+  z-index: 20;
+}
+
+.dropdown-menu-right {
+  left: auto;
+  right: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background: #f3f4f6;
+}
+
+/* Content section (editor) */
+.notepad-main {
+  width: 100%;
+  padding: 24px;
+  background: transparent;      /* Body already has soft background */
+  flex: 1;                      /* Content grows to fill space */
+}
+
+.note-editor-section {
+  max-width: 1100px;
+  margin: 16px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  background: #ffffff;          /* White card for focus */
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.note-title-wrapper,
+.note-body-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note-title-label,
+.note-content-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.note-title-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  background: #f9fafb;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.note-title-input:hover {
+  background: #ffffff;
+}
+
+.note-title-input:focus {
+  border-color: #2563eb;        /* Modern blue focus color */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  background: #ffffff;
+}
+
+.note-content-area {
+  width: 100%;
+  min-height: 420px;
+  padding: 14px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+  background: #f9fafb;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.note-content-area:hover {
+  background: #ffffff;
+}
+
+.note-content-area:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  background: #ffffff;
+}
+
+/* Content responsive */
+@media (max-width: 768px) {
+  .notepad-main {
+    padding: 16px;
+  }
+
+  .note-editor-section {
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .note-title-input,
+  .note-content-area {
+    font-size: 15px;
+  }
+
+  .note-content-area {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .notepad-main {
+    padding: 12px;
+  }
+
+  .note-editor-section {
+    padding: 14px;
+  }
+
+  .note-title-input {
+    padding: 10px 12px;
+  }
+
+  .note-content-area {
+    min-height: 260px;
+    padding: 12px;
+  }
+}
+
+/* Footer / status bar */
+.notepad-footer {
+  width: 100%;
+  border-top: 1px solid #d1d5db;   /* Separate footer from content */
+  background-color: #e5e7eb;       /* Slightly darker than content for status bar */
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+.status-bar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+}
+
+.status-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #374151;
+}
+
+.status-label {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.status-value {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Subtle hover effect for status items */
+.status-item:hover {
+  background-color: #d1d5db;
+  border-radius: 4px;
+}
+
+/* Footer responsive */
+@media (max-width: 768px) {
+  .status-bar {
+    padding: 6px 12px;
+    gap: 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-bar {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  .status-item {
+    padding: 2px 4px;
+  }
+}
